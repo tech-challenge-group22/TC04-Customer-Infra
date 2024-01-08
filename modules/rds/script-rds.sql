@@ -1,4 +1,4 @@
-USE DeliverySystem;
+USE CustomerMS;
 
 CREATE TABLE customers (
     id INT auto_increment PRIMARY KEY,

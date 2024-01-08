@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ms-customer",
+    "image": "${image}",
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      },
+      {
+        "containerPort": 3000,
+        "hostPort": 3000
+      }
+    ],
+    "memory": 300,
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "ms-customer"
+      }
+    },
+    "environment": [
+      {
+        "name": "DB_USER",
+        "value": "${db_username}"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "value": "${db_password}"
+      },
+      {
+        "name": "AWS_REGION",
+        "value": "${aws_region}"
+      },
+      {
+        "name": "DB_NAME",
+        "value": "${database_name}"
+      },
+      {
+        "name": "SECRET_KEY_JWT_TOKEN",
+        "value": ""
+      },
+      {
+        "name": "PORT",
+        "value": "3000"
+      }
+    ],
+    "healthCheck": {
+      "command": [
+        "CMD-SHELL",
+        "curl -f http://localhost:3000/api-docs/#/ || exit 1"
+      ],
+      "interval": 30,
+      "timeout": 5,
+      "retries": 3,
+      "startPeriod": 60
+    }
+  }
+]

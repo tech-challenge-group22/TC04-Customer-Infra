@@ -1,39 +1,23 @@
-
-variable "db_username" {
-  description = "Database administrator username"
-  type        = string
-  sensitive   = true
+variable "region" {
+  description = "Region that the instances will be created"
 }
 
-variable "db_password" {
-  description = "Database administrator password"
-  type        = string
-  sensitive   = true
+/*====
+environment specific variables
+======*/
+
+variable "database_name" {
+  description = "The database name for Production"
 }
 
-variable prefix {
-  type        = string
-  default     = "TC04"
+variable "database_username" {
+  description = "The username for the Production database"
 }
 
-variable cluster_name {
-  type        = string
-  default     = "TC04-Customer"
+variable "database_password" {
+  description = "The user password for the Production database"
 }
 
-variable desired_size {
-  default     = 2
+variable "lab_role_arn" {
+  description = "The lab role"
 }
-
-variable min_size {
-  default     = 2
-}
-
-variable max_size {
-  default     = 4
-}
-
-variable retention_days {
-  default     = 30
-}
-
