@@ -32,12 +32,16 @@
         "value": "${db_password}"
       },
       {
-        "name": "AWS_REGION",
-        "value": "${aws_region}"
-      },
-      {
         "name": "DB_NAME",
         "value": "${database_name}"
+      },
+      {
+        "name": "DB_HOST",
+        "value": "${db_host}"
+      },
+      {
+        "name": "AWS_REGION",
+        "value": "${aws_region}"
       },
       {
         "name": "SECRET_KEY_JWT_TOKEN",
